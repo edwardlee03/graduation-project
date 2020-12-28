@@ -1,0 +1,10 @@
+FROM java:8
+EXPOSE 32206:32206
+
+# 作者
+MAINTAINER Tyler
+# 将jar包添加到容器中并更名为app.jar
+ADD target/*.jar /web-0.1.jar
+
+# 运行jar包
+ENTRYPOINT ["nohup","java","-jar","/web-0.1.jar"]

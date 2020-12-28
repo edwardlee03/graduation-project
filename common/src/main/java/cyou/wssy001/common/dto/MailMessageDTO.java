@@ -1,0 +1,35 @@
+package cyou.wssy001.common.dto;
+
+import cn.hutool.core.util.IdUtil;
+import lombok.Data;
+
+import java.io.Serializable;
+
+/**
+ * @ProjectName: graduation-project
+ * @ClassName: WechatMessageDTO
+ * @Description:
+ * @Author: alexpetertyler
+ * @Date: 2020/11/16
+ * @Version v1.0
+ */
+@Data
+public class MailMessageDTO extends AbstractMessageDTO implements Serializable {
+    private static final long serialVersionUID = 9L;
+    private String address;
+    private String msg;
+    private String href;
+
+    public MailMessageDTO() {
+        setTo("mail");
+        setDtoID(getTo() + "-" + IdUtil.fastSimpleUUID());
+    }
+
+    @Override
+    public String toString() {
+        return super.toString() +
+                "address='" + address + '\'' +
+                ", msg='" + msg + '\'' +
+                ", href='" + href;
+    }
+}
