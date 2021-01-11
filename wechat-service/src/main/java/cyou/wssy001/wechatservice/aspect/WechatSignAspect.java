@@ -12,12 +12,12 @@ import org.aspectj.lang.annotation.Before;
 import org.springframework.stereotype.Component;
 
 /**
- * @ProjectName: graduation-project
- * @ClassName: WechatSignAspect
- * @Description:
- * @Author: alexpetertyler
- * @Date: 2020/11/23
- * @Version v1.0
+ * @projectName: graduation-project
+ * @className: WechatSignAspect
+ * @description:
+ * @author: alexpetertyler
+ * @date: 2020/11/23
+ * @Version: v1.0
  */
 @Component
 @Aspect

@@ -19,12 +19,12 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 /**
- * @ProjectName: dcshelper
- * @ClassName: WxConfig
- * @Description: 微信后台相关配置类
- * @Author: alexpetertyler
- * @Date: 2020/8/15
- * @Version v1.0
+ * @projectName: dcshelper
+ * @className: WxConfig
+ * @description: 微信后台相关配置类
+ * @author: alexpetertyler
+ * @date: 2020/8/15
+ * @Version: v1.0
  */
 @Configuration
 @EnableConfigurationProperties(WxProperties.class)

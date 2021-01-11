@@ -3,12 +3,12 @@ package cyou.wssy001.wechatservice.builder;
 import me.chanjar.weixin.mp.bean.kefu.WxMpKefuMessage;
 
 /**
- * @ProjectName: dcshelper
- * @ClassName: KfTextBuilder
- * @Description:
- * @Author: alexpetertyler
- * @Date: 2020/8/16
- * @Version v1.0
+ * @projectName: dcshelper
+ * @className: KfTextBuilder
+ * @description:
+ * @author: alexpetertyler
+ * @date: 2020/8/16
+ * @Version: v1.0
  */
 
 public class KfTextBuilder extends AbstractKfBuilder {

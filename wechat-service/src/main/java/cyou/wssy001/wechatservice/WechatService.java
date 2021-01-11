@@ -11,12 +11,12 @@ import org.springframework.context.annotation.Import;
 import org.springframework.scheduling.annotation.EnableAsync;
 
 /**
- * @ProjectName: graduation-project
- * @ClassName: WechatService
- * @Description: 微信公众号服务端主启动
- * @Author: alexpetertyler
- * @Date: 2020/11/17
- * @Version v1.0
+ * @projectName: graduation-project
+ * @className: WechatService
+ * @description: 微信公众号服务端主启动
+ * @author: alexpetertyler
+ * @date: 2020/11/17
+ * @Version: v1.0
  */
 @SpringBootApplication
 @EnableAsync

@@ -16,12 +16,12 @@ import springfox.documentation.spring.web.plugins.Docket;
 import springfox.documentation.swagger2.annotations.EnableSwagger2WebMvc;
 
 /**
- * @ProjectName: graduation-project
- * @ClassName: SwaggerConfig
- * @Description:
- * @Author: alexpetertyler
- * @Date: 2020/9/4
- * @Version v1.0
+ * @projectName: graduation-project
+ * @className: SwaggerConfig
+ * @description:
+ * @author: alexpetertyler
+ * @date: 2020/9/4
+ * @Version: v1.0
  */
 @Configuration
 @EnableSwagger2WebMvc

@@ -18,12 +18,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * @ProjectName: graduation-project
- * @ClassName: AdminController
- * @Description:
- * @Author: alexpetertyler
- * @Date: 2020/12/22
- * @Version v1.0
+ * @projectName: graduation-project
+ * @className: AdminController
+ * @description:
+ * @author: alexpetertyler
+ * @date: 2020/12/22
+ * @Version: v1.0
  */
 @RestController
 @RequestMapping("/admin")

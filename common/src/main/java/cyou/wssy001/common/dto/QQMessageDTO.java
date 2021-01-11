@@ -6,12 +6,12 @@ import lombok.Data;
 import java.io.Serializable;
 
 /**
- * @ProjectName: graduation-project
- * @ClassName: QQMessageDTO
- * @Description:
- * @Author: alexpetertyler
- * @Date: 2020/11/19
- * @Version v1.0
+ * @projectName: graduation-project
+ * @className: QQMessageDTO
+ * @description:
+ * @author: alexpetertyler
+ * @date: 2020/11/19
+ * @Version: v1.0
  */
 @Data
 public class QQMessageDTO extends AbstractMessageDTO implements Serializable {

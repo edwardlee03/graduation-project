@@ -1,7 +1,11 @@
 package cyou.wssy001.wechatservice.controller;
 
+import cyou.wssy001.common.dao.LogInfoDao;
 import cyou.wssy001.common.dto.WechatMessageDTO;
+import cyou.wssy001.common.entity.GlobalException;
 import cyou.wssy001.common.entity.GlobalResult;
+import cyou.wssy001.common.entity.LogInfo;
+import cyou.wssy001.common.util.LogUtil;
 import cyou.wssy001.wechatservice.builder.KfTextBuilder;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -15,18 +19,19 @@ import org.apache.commons.lang3.StringUtils;
 import org.springframework.web.bind.annotation.*;
 
 /**
- * @ProjectName: graduation-project
- * @ClassName: WechatController
- * @Description:
- * @Author: alexpetertyler
- * @Date: 2020/11/17
- * @Version v1.0
+ * @projectName: graduation-project
+ * @className: WechatController
+ * @description:
+ * @author: alexpetertyler
+ * @date: 2020/11/17
+ * @Version: v1.0
  */
 @RestController
 @Slf4j
 @RequiredArgsConstructor
 public class WechatController {
 
+    private final LogInfoDao logInfoDao;
     private final WxMpService wxService;
     private final WxMpMessageRouter messageRouter;
 
@@ -36,7 +41,8 @@ public class WechatController {
             @RequestParam(name = "timestamp", required = false) String timestamp,
             @RequestParam(name = "nonce", required = false) String nonce,
             @RequestParam(name = "echostr", required = false) String echostr
-    ) {if (StringUtils.isAnyBlank(signature, timestamp, nonce, echostr)) {
+    ) {
+        if (StringUtils.isAnyBlank(signature, timestamp, nonce, echostr)) {
             throw new IllegalArgumentException("请求参数非法，请核实!");
         }
 
@@ -44,7 +50,7 @@ public class WechatController {
             return echostr;
         }
 
-        return "非法请求";
+        throw new GlobalException(-200, "非法请求");
     }
 
     @PostMapping(value = "/wx", produces = "application/xml; charset=UTF-8")
@@ -69,6 +75,7 @@ public class WechatController {
             }
 
             out = outMessage.toXml();
+            log(inMessage);
         }
 
         return out;
@@ -89,9 +96,18 @@ public class WechatController {
         try {
             return this.messageRouter.route(message);
         } catch (Exception e) {
-            log.error("路由消息时出现异常！", e);
+            throw new GlobalException(-200, "路由消息时出现异常！\n" + e.getMessage());
         }
+    }
 
-        return null;
+    private void log(WxMpXmlMessage xml) {
+        LogInfo logInfo = new LogInfo();
+        logInfo.setClientName("wechat");
+        logInfo.setMethodName("post");
+        logInfo.setUuid("wechat-" + xml.getMsgId());
+        logInfo.setOpenId(xml.getFromUser());
+        logInfo.setIp("微信服务器");
+        logInfoDao.insert(logInfo);
+        LogUtil.addLog(logInfo);
     }
 }

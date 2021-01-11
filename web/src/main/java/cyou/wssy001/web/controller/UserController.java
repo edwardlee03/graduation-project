@@ -17,12 +17,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * @ProjectName: graduation-project
- * @ClassName: UserController
- * @Description:
- * @Author: alexpetertyler
- * @Date: 2020/12/22
- * @Version v1.0
+ * @projectName: graduation-project
+ * @className: UserController
+ * @description:
+ * @author: alexpetertyler
+ * @date: 2020/12/22
+ * @Version: v1.0
  */
 @RestController
 @RequestMapping("/user")

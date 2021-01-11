@@ -20,7 +20,7 @@ public class Robot {
 
     @Async
     public void startUp() throws IOException {
-        bot = BotFactory.INSTANCE.newBot(1234567890, "", new BotConfiguration() {
+        bot = BotFactory.INSTANCE.newBot(1, "", new BotConfiguration() {
             {
                 //保存设备信息到文件
                 fileBasedDeviceInfo("deviceInfo.json");

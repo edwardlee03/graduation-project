@@ -3,12 +3,12 @@ package cyou.wssy001.common.entity;
 import lombok.Data;
 
 /**
- * @ProjectName: graduation-project
- * @ClassName: MyException
- * @Description:
- * @Author: alexpetertyler
- * @Date: 2020/11/24
- * @Version v1.0
+ * @projectName: graduation-project
+ * @className: MyException
+ * @description:
+ * @author: alexpetertyler
+ * @date: 2020/11/24
+ * @Version: v1.0
  */
 @Data
 public class GlobalException extends RuntimeException {

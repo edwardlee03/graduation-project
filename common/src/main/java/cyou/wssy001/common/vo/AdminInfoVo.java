@@ -9,12 +9,12 @@ import lombok.NoArgsConstructor;
 import java.io.Serializable;
 
 /**
- * @ProjectName: graduation-project
- * @ClassName: AdminInfoVo
- * @Description:
- * @Author: alexpetertyler
- * @Date: 2020/12/21
- * @Version v1.0
+ * @projectName: graduation-project
+ * @className: AdminInfoVo
+ * @description:
+ * @author: alexpetertyler
+ * @date: 2020/12/21
+ * @Version: v1.0
  */
 @Data
 @AllArgsConstructor

@@ -14,12 +14,12 @@ import javax.servlet.http.HttpServletRequest;
 import java.util.Map;
 
 /**
- * @ProjectName: graduation-project
- * @ClassName: GlobalErrorController
- * @Description:
- * @Author: alexpetertyler
- * @Date: 2020/11/20
- * @Version v1.0
+ * @projectName: graduation-project
+ * @className: GlobalErrorController
+ * @description:
+ * @author: alexpetertyler
+ * @date: 2020/11/20
+ * @Version: v1.0
  */
 @RestController
 @RequiredArgsConstructor

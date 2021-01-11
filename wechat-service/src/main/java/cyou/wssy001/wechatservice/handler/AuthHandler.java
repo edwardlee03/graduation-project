@@ -20,12 +20,12 @@ import java.util.Date;
 import java.util.Map;
 
 /**
- * @ProjectName: graduation-project
- * @ClassName: AuthHandler
- * @Description:
- * @Author: alexpetertyler
- * @Date: 2020/11/17
- * @Version v1.0
+ * @projectName: graduation-project
+ * @className: AuthHandler
+ * @description:
+ * @author: alexpetertyler
+ * @date: 2020/11/17
+ * @Version: v1.0
  */
 @Component
 @RequiredArgsConstructor

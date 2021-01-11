@@ -6,12 +6,12 @@ import lombok.Data;
 import java.io.Serializable;
 
 /**
- * @ProjectName: graduation-project
- * @ClassName: WechatMessageDTO
- * @Description:
- * @Author: alexpetertyler
- * @Date: 2020/11/16
- * @Version v1.0
+ * @projectName: graduation-project
+ * @className: WechatMessageDTO
+ * @description:
+ * @author: alexpetertyler
+ * @date: 2020/11/16
+ * @Version: v1.0
  */
 @Data
 public class WechatMessageDTO extends AbstractMessageDTO implements Serializable {

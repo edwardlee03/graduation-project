@@ -15,12 +15,12 @@ import org.springframework.stereotype.Component;
 import java.util.Map;
 
 /**
- * @ProjectName: graduation-project
- * @ClassName: NovelInterceptor
- * @Description:
- * @Author: alexpetertyler
- * @Date: 2020/12/17
- * @Version v1.0
+ * @projectName: graduation-project
+ * @className: NovelInterceptor
+ * @description:
+ * @author: alexpetertyler
+ * @date: 2020/12/17
+ * @Version: v1.0
  */
 @Component
 @RequiredArgsConstructor

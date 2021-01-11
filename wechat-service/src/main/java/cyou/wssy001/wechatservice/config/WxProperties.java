@@ -7,12 +7,12 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 import java.util.List;
 
 /**
- * @ProjectName: dcshelper
- * @ClassName: WxProperties
- * @Description:
- * @Author: alexpetertyler
- * @Date: 2020/8/15
- * @Version v1.0
+ * @projectName: dcshelper
+ * @className: WxProperties
+ * @description:
+ * @author: alexpetertyler
+ * @date: 2020/8/15
+ * @Version: v1.0
  */
 @Data
 @ConfigurationProperties(prefix = "wx.mp")

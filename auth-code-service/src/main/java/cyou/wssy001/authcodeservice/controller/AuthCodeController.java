@@ -20,12 +20,12 @@ import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Future;
 
 /**
- * @ProjectName: graduation-project
- * @ClassName: AuthCodeController
- * @Description:
- * @Author: alexpetertyler
- * @Date: 2020/11/24
- * @Version v1.0
+ * @projectName: graduation-project
+ * @className: AuthCodeController
+ * @description:
+ * @author: alexpetertyler
+ * @date: 2020/11/24
+ * @Version: v1.0
  */
 @RestController
 @Slf4j
@@ -34,16 +34,6 @@ public class AuthCodeController {
     private final AuthCodeDao authCodeDao;
     private final UserInfoDao userInfoDao;
     private final AsyncRequest asyncRequest;
-
-    @GetMapping("/test")
-    public String test() throws ExecutionException, InterruptedException {
-        AuthCodeDTO dto = new AuthCodeDTO();
-        dto.setFrom("auth");
-        dto.setEmail("1632812408@qq.com");
-        dto.setUserId(32L);
-        Future<GlobalResult<? extends AbstractMessageDTO>> send = asyncRequest.send(dto);
-        return send.get().toString();
-    }
 
     @PostMapping("/generate")
     public GlobalResult<? extends AbstractMessageDTO> generate(
@@ -59,10 +49,15 @@ public class AuthCodeController {
         AuthCode authCode;
         if (data.getQq() != null) {
             QQMessageDTO qqMessageDTO = new QQMessageDTO();
-            qqMessageDTO.setMsg("关联您的QQ请点击下方URL\n" + ServiceAddress.AUTH_CODE.getAddress() + "/verify/" + s);
+            if (ServiceAddress.AUTH_CODE.getAddress().contains("localhost")) {
+                qqMessageDTO.setMsg("关联您的QQ请点击下方URL\n" + ServiceAddress.AUTH_CODE.getAddress() + "/verify/" + s);
+            } else {
+                qqMessageDTO.setMsg("关联您的QQ请点击下方URL\nhttp://auth.dev2.wssy001.cyou:32203/verify/" + s);
+            }
 
             qqMessageDTO.setUserNumber(data.getQq());
             qqMessageDTO.setFrom("auth");
+            qqMessageDTO.setGroupNumber("");
             future = asyncRequest.send(qqMessageDTO);
             authCode = new AuthCode(data.getUserId(), s, data.getQq(), null);
         } else {
@@ -70,7 +65,10 @@ public class AuthCodeController {
             mailMessageDTO.setFrom("auth");
             mailMessageDTO.setAddress(data.getEmail());
             mailMessageDTO.setMsg("关联您的邮箱请点击下方URL");
-            mailMessageDTO.setHref(ServiceAddress.AUTH_CODE.getAddress() + "/verify/" + s);
+
+            if (ServiceAddress.AUTH_CODE.getAddress().contains("localhost")) {
+                mailMessageDTO.setHref(ServiceAddress.AUTH_CODE.getAddress() + "/verify/" + s);
+            }
 
             future = asyncRequest.send(mailMessageDTO);
             authCode = new AuthCode(data.getUserId(), s, null, data.getEmail());

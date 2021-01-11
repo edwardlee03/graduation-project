@@ -8,12 +8,12 @@ import java.io.Serializable;
 import java.util.Date;
 
 /**
- * @ProjectName: graduation-project
- * @ClassName: AuthCodeDTO
- * @Description:
- * @Author: alexpetertyler
- * @Date: 2020/11/16
- * @Version v1.0
+ * @projectName: graduation-project
+ * @className: AuthCodeDTO
+ * @description:
+ * @author: alexpetertyler
+ * @date: 2020/11/16
+ * @Version: v1.0
  */
 @Data
 @AllArgsConstructor

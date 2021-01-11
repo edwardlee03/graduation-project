@@ -1,12 +1,12 @@
 package cyou.wssy001.common.constant;
 
 /**
- * @ProjectName: graduation-project
- * @ClassName: BaseChar
- * @Description:
- * @Author: alexpetertyler
- * @Date: 2020/11/24
- * @Version v1.0
+ * @projectName: graduation-project
+ * @className: BaseChar
+ * @description:
+ * @author: alexpetertyler
+ * @date: 2020/11/24
+ * @Version: v1.0
  */
 
 public class BaseChar {

@@ -12,12 +12,12 @@ import org.springframework.scheduling.annotation.EnableAsync;
 import org.springframework.scheduling.annotation.EnableScheduling;
 
 /**
- * @ProjectName: graduation-project
- * @ClassName: WebSpider
- * @Description:
- * @Author: alexpetertyler
- * @Date: 2020/12/7
- * @Version v1.0
+ * @projectName: graduation-project
+ * @className: WebSpider
+ * @description:
+ * @author: alexpetertyler
+ * @date: 2020/12/7
+ * @Version: v1.0
  */
 @SpringBootApplication
 @EnableScheduling

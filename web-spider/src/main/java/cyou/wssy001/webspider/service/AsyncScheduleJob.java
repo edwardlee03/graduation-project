@@ -4,10 +4,14 @@ import cn.hutool.core.date.DateUtil;
 import cn.hutool.core.io.FileUtil;
 import cn.hutool.core.io.file.FileReader;
 import cn.hutool.core.io.file.FileWriter;
+import cn.hutool.core.util.IdUtil;
 import cn.hutool.http.Header;
 import cn.hutool.http.HttpRequest;
+import cyou.wssy001.common.dao.LogInfoDao;
 import cyou.wssy001.common.dao.NovelInfoDao;
+import cyou.wssy001.common.entity.LogInfo;
 import cyou.wssy001.common.entity.NovelInfo;
+import cyou.wssy001.common.util.LogUtil;
 import lombok.RequiredArgsConstructor;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
@@ -20,17 +24,18 @@ import java.util.Date;
 import java.util.List;
 
 /**
- * @ProjectName: graduation-project
- * @ClassName: AsyncScheduleJob
- * @Description:
- * @Author: alexpetertyler
- * @Date: 2020/12/7
- * @Version v1.0
+ * @projectName: graduation-project
+ * @className: AsyncScheduleJob
+ * @description:
+ * @author: alexpetertyler
+ * @date: 2020/12/7
+ * @Version: v1.0
  */
 @Async
 @RequiredArgsConstructor
 public class AsyncScheduleJob {
     private final NovelInfoDao novelInfoDao;
+    private final LogInfoDao logInfoDao;
 
     private boolean flag;
 
@@ -97,14 +102,31 @@ public class AsyncScheduleJob {
                             time = time.replace("小时前", "");
                             int i = Integer.parseInt(time);
                             novelInfo.setLastUpdateTime(DateUtil.offsetHour(new Date(), -i));
+                        } else if (time.contains("分钟")) {
+                            time = time.replace("分钟前", "");
+                            int i = Integer.parseInt(time);
+                            novelInfo.setLastUpdateTime(DateUtil.offsetMinute(new Date(), -i));
+                        } else if (time.contains("昨日")) {
+                            time = time.replace("昨日", "");
+                            time = "2021-" + DateUtil.thisMonth() + "-" + DateUtil.yesterday() + " " + time + ":00";
+                            novelInfo.setLastUpdateTime(DateUtil.parse(time));
                         } else {
                             novelInfo.setLastUpdateTime(DateUtil.parse(time, "yyyy-MM-dd"));
                         }
                         novelInfoDao.updateById(novelInfo);
+                        log(novelInfo);
                     }
                 });
             }
         });
     }
 
+    private void log(NovelInfo novelInfo) {
+        LogInfo logInfo = new LogInfo();
+        logInfo.setClientName("spider");
+        logInfo.setUuid("spider-" + IdUtil.fastSimpleUUID());
+        logInfo.setMsg("小说：" + novelInfo.getNovelQdId() + " 更新完毕");
+        logInfoDao.insert(logInfo);
+        LogUtil.addLog(logInfo);
+    }
 }

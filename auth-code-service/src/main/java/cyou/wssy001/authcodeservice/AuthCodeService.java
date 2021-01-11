@@ -11,12 +11,12 @@ import org.springframework.context.annotation.Import;
 import org.springframework.scheduling.annotation.EnableAsync;
 
 /**
- * @ProjectName: graduation-project
- * @ClassName: AuthCodeService
- * @Description:
- * @Author: alexpetertyler
- * @Date: 2020/11/24
- * @Version v1.0
+ * @projectName: graduation-project
+ * @className: AuthCodeService
+ * @description:
+ * @author: alexpetertyler
+ * @date: 2020/11/24
+ * @Version: v1.0
  */
 @SpringBootApplication
 @MapperScan("cyou.wssy001.common.dao")

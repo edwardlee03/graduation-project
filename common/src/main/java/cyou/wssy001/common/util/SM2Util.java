@@ -11,12 +11,12 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 /**
- * @ProjectName: graduation-project
- * @ClassName: SM2Util
- * @Description:
- * @Author: alexpetertyler
- * @Date: 2020/11/23
- * @Version v1.0
+ * @projectName: graduation-project
+ * @className: SM2Util
+ * @description:
+ * @author: alexpetertyler
+ * @date: 2020/11/23
+ * @Version: v1.0
  */
 @Slf4j
 @Component

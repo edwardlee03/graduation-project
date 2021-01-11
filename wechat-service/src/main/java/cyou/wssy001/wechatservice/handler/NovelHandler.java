@@ -25,12 +25,12 @@ import java.util.Map;
 import java.util.stream.Collectors;
 
 /**
- * @ProjectName: graduation-project
- * @ClassName: NovelHandler
- * @Description:
- * @Author: alexpetertyler
- * @Date: 2020/12/17
- * @Version v1.0
+ * @projectName: graduation-project
+ * @className: NovelHandler
+ * @description:
+ * @author: alexpetertyler
+ * @date: 2020/12/17
+ * @Version: v1.0
  */
 @Component
 @RequiredArgsConstructor

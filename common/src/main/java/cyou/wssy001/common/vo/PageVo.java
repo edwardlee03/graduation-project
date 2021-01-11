@@ -7,12 +7,12 @@ import lombok.Data;
 import java.util.List;
 
 /**
- * @ProjectName: graduation-project
- * @ClassName: PageVo
- * @Description:
- * @Author: alexpetertyler
- * @Date: 2020/12/21
- * @Version v1.0
+ * @projectName: graduation-project
+ * @className: PageVo
+ * @description:
+ * @author: alexpetertyler
+ * @date: 2020/12/21
+ * @Version: v1.0
  */
 @Data
 @ApiModel(value = "PageVo对象", description = "")

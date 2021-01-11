@@ -6,12 +6,12 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 /**
- * @ProjectName: graduation-project
- * @ClassName: GlobalResult
- * @Description:
- * @Author: alexpetertyler
- * @Date: 2020/11/17
- * @Version v1.0
+ * @projectName: graduation-project
+ * @className: GlobalResult
+ * @description:
+ * @author: alexpetertyler
+ * @date: 2020/11/17
+ * @Version: v1.0
  */
 @Data
 @AllArgsConstructor

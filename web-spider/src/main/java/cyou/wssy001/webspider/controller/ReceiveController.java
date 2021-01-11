@@ -5,15 +5,14 @@ import cn.hutool.http.Header;
 import cn.hutool.http.HttpRequest;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import cyou.wssy001.common.async.AsyncRequest;
+import cyou.wssy001.common.dao.LogInfoDao;
 import cyou.wssy001.common.dao.NovelInfoDao;
 import cyou.wssy001.common.dao.UserInfoDao;
 import cyou.wssy001.common.dao.UserNovelDao;
 import cyou.wssy001.common.dto.SpiderMessageDTO;
 import cyou.wssy001.common.dto.WechatMessageDTO;
-import cyou.wssy001.common.entity.GlobalResult;
-import cyou.wssy001.common.entity.NovelInfo;
-import cyou.wssy001.common.entity.UserInfo;
-import cyou.wssy001.common.entity.UserNovel;
+import cyou.wssy001.common.entity.*;
+import cyou.wssy001.common.util.LogUtil;
 import lombok.RequiredArgsConstructor;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
@@ -27,12 +26,12 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.Date;
 
 /**
- * @ProjectName: graduation-project
- * @ClassName: ReceiveController
- * @Description:
- * @Author: alexpetertyler
- * @Date: 2020/12/7
- * @Version v1.0
+ * @projectName: graduation-project
+ * @className: ReceiveController
+ * @description:
+ * @author: alexpetertyler
+ * @date: 2020/12/7
+ * @Version: v1.0
  */
 @RestController
 @RequiredArgsConstructor
@@ -41,6 +40,7 @@ public class ReceiveController {
     private final NovelInfoDao novelInfoDao;
     private final UserNovelDao userNovelDao;
     private final AsyncRequest asyncRequest;
+    private final LogInfoDao logInfoDao;
 
     @GetMapping("/test")
     public String test() {
@@ -117,6 +117,8 @@ public class ReceiveController {
             dto.setMsg(stringBuilder.toString());
             asyncRequest.send(dto);
         }
+
+        log(data);
         return new GlobalResult<>(200, "成功", null);
     }
 
@@ -132,7 +134,8 @@ public class ReceiveController {
         Document document = Jsoup.parse(s);
         Element element = document.getElementsByClass("book-info").get(0);
         String name = element.getElementsByTag("h1").get(0).getElementsByTag("em").get(0).text();
-        return getNovelByName(name, id);
+        NovelInfo novel = getNovelByName(name, id);
+        return novel;
     }
 
     private NovelInfo getNovelByName(String name, Integer id) {
@@ -169,6 +172,14 @@ public class ReceiveController {
                     time = time.replace("小时前", "");
                     int i = Integer.parseInt(time);
                     novelInfo.setLastUpdateTime(DateUtil.offsetHour(new Date(), -i));
+                } else if (time.contains("分钟")) {
+                    time = time.replace("分钟前", "");
+                    int i = Integer.parseInt(time);
+                    novelInfo.setLastUpdateTime(DateUtil.offsetMinute(new Date(), -i));
+                } else if (time.contains("昨日")) {
+                    time = time.replace("昨日", "");
+                    time = "2021-" + DateUtil.thisMonth() + "-" + DateUtil.yesterday() + " " + time + ":00";
+                    novelInfo.setLastUpdateTime(DateUtil.parse(time));
                 } else {
                     novelInfo.setLastUpdateTime(DateUtil.parse(time, "yyyy-MM-dd"));
                 }
@@ -177,5 +188,15 @@ public class ReceiveController {
             }
         });
         return novelInfo;
+    }
+
+    private void log(SpiderMessageDTO data) {
+        LogInfo logInfo = new LogInfo();
+        logInfo.setClientName("spider");
+        logInfo.setUuid(data.getDtoID());
+        logInfo.setOpenId(data.getOpenId());
+        logInfo.setIp(LogUtil.getIPAddress());
+        logInfoDao.insert(logInfo);
+        LogUtil.addLog(logInfo);
     }
 }

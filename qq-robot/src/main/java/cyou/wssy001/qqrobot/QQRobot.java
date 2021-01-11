@@ -14,12 +14,12 @@ import org.springframework.scheduling.annotation.EnableAsync;
 import java.io.IOException;
 
 /**
- * @ProjectName: graduation-project
- * @ClassName: QQRobot
- * @Description:
- * @Author: alexpetertyler
- * @Date: 2020/11/17
- * @Version v1.0
+ * @projectName: graduation-project
+ * @className: QQRobot
+ * @description:
+ * @author: alexpetertyler
+ * @date: 2020/11/17
+ * @Version: v1.0
  */
 @SpringBootApplication
 @MapperScan("cyou.wssy001.common.dao")

@@ -1,12 +1,12 @@
 package cyou.wssy001.common.constant;
 
 /**
- * @ProjectName: graduation-project
- * @ClassName: SM2KeyPairs
- * @Description:
- * @Author: alexpetertyler
- * @Date: 2020/11/17
- * @Version v1.0
+ * @projectName: graduation-project
+ * @className: SM2KeyPairs
+ * @description:
+ * @author: alexpetertyler
+ * @date: 2020/11/17
+ * @Version: v1.0
  */
 public class SM2KeyPairs {
     public static final String MAIL_PUBLICK_KEY = "MFkwEwYHKoZIzj0CAQYIKoEcz1UBgi0DQgAEiNctobyqsIQNLELyOqWwNjWHbm4fqEiNx3RE2M1jcO9/6E/G028LNvsNF774SXCFuuvWM6bTWSWjRboD7RaEhQ==";

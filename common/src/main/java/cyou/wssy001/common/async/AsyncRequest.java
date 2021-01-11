@@ -19,12 +19,12 @@ import org.springframework.stereotype.Component;
 import java.util.concurrent.Future;
 
 /**
- * @ProjectName: graduation-project
- * @ClassName: AsyncRequest
- * @Description:
- * @Author: alexpetertyler
- * @Date: 2020/11/23
- * @Version v1.0
+ * @projectName: graduation-project
+ * @className: AsyncRequest
+ * @description:
+ * @author: alexpetertyler
+ * @date: 2020/11/23
+ * @Version: v1.0
  */
 @Component
 @Slf4j

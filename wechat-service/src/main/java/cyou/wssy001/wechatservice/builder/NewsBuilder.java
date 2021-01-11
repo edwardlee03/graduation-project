@@ -8,12 +8,12 @@ import me.chanjar.weixin.mp.bean.message.WxMpXmlOutNewsMessage;
 import java.util.List;
 
 /**
- * @ProjectName: graduation-project
- * @ClassName: NewsBuilder
- * @Description:
- * @Author: alexpetertyler
- * @Date: 2020/12/17
- * @Version v1.0
+ * @projectName: graduation-project
+ * @className: NewsBuilder
+ * @description:
+ * @author: alexpetertyler
+ * @date: 2020/12/17
+ * @Version: v1.0
  */
 public class NewsBuilder extends AbstractNewsBuilder {
 

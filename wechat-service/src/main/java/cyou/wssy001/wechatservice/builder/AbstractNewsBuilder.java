@@ -8,12 +8,12 @@ import me.chanjar.weixin.mp.bean.message.WxMpXmlOutNewsMessage;
 import java.util.List;
 
 /**
- * @ProjectName: dcshelper
- * @ClassName: AbstractKfBuilder
- * @Description:
- * @Author: alexpetertyler
- * @Date: 2020/8/16
- * @Version v1.0
+ * @projectName: dcshelper
+ * @className: AbstractKfBuilder
+ * @description:
+ * @author: alexpetertyler
+ * @date: 2020/8/16
+ * @Version: v1.0
  */
 @Slf4j
 public abstract class AbstractNewsBuilder {
